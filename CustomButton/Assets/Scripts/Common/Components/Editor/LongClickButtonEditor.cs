@@ -16,7 +16,7 @@ namespace UnityEditor.UI
         protected override void OnEnable()
         {
             base.OnEnable();
-            this.m_OnClickProperty = base.serializedObject.FindProperty("m_OnClick");
+            this.m_OnClickProperty = base.serializedObject.FindProperty("m_onSingleClick");
             this.m_OnLongClickProperty = base.serializedObject.FindProperty("m_onLongClick");
             this.m_SingleClickableProperty = base.serializedObject.FindProperty("m_singleClickable");
         }

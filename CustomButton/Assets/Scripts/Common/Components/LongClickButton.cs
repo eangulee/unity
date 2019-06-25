@@ -11,8 +11,23 @@ using UnityEngine.UI;
 [AddComponentMenu("UI/LongClickButton")]
 public class LongClickButton : Button
 {
+    /// <summary>
+    ///   <para>Function definition for a single button click event.</para>
+    /// </summary>
+    [Serializable]
+    public class SingleClickedEvent : UnityEvent { }
     [Serializable]
     public class LongClickEvent : UnityEvent { }
+
+    //这里使用新定义的SingleClickedEvent，避免跟Button冲突
+    [FormerlySerializedAs("onSingleClick"), SerializeField]
+    private SingleClickedEvent m_onSingleClick = new SingleClickedEvent();
+    public SingleClickedEvent onSingleClick
+    {
+        get { return m_onSingleClick; }
+        set { m_onSingleClick = value; }
+    }
+
 
     [FormerlySerializedAs("onLongClick"), SerializeField]
     private LongClickEvent m_onLongClick = new LongClickEvent();
@@ -37,8 +52,8 @@ public class LongClickButton : Button
 
     private void SingleClick()
     {
-        if (null != onClick)
-            onClick.Invoke();
+        if (null != m_onSingleClick)
+            m_onSingleClick.Invoke();
         resetTime();
     }
 
