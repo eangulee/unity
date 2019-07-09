@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 任意轴旋转
 /// </summary>
-public class AxisRotate : MonoBehaviour
+public class MatrixRotate : MonoBehaviour
 {
     public Transform target;
     public float rotateSpeed = 1f;
