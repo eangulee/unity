@@ -5,10 +5,11 @@ using UnityEngine;
 public class ShaderLOD : MonoBehaviour
 {
     public Shader shader;//公开属性需要关联
-    public int LOD_value = 600;//外部来设置shader的LOD的值
+    public int LOD_value = 600;//外部来设置shader的LOD的值，可以是负数，可以是0
     // Use this for initialization
     void Start()
     {
+        //Shader.globalMaximumLOD = LOD_value;
         Debug.Log(this.shader.maximumLOD);
     }
 

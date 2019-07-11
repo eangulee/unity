@@ -61,7 +61,7 @@
     }
     SubShader {
         Tags { "RenderType"="Opaque" }
-        LOD 400 // LOD-----------------这里设置为400
+        LOD -10 // LOD-----------------这里设置为任意值，负数都可以，找到第一个<= Shader.maximumLOD 这个subShader执行;
         
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
