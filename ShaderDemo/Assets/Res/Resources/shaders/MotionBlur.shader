@@ -85,12 +85,12 @@
             fixed4 fragRGB (v2f i) : SV_Target {
                 return fixed4(tex2D(_MainTex, i.uv).rgb, _BlurAmount);
             }
-
             ENDCG
         }
             
-        Pass {   
-            Blend One Zero
+        //该pass似乎没有什么用处，渲染了一个Alpha的值
+        Pass {
+            Blend One Zero//似乎等于自己 源颜色*1 + 目标颜色*0 = 源颜色
             ColorMask A
 
             CGPROGRAM
@@ -109,7 +109,6 @@
             };
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float _BlurAmount;
             v2f vert (appdata v)
             {
                 v2f o;
