@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc1c3ef4097d38469788b61f6df6457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 0bbe469f27d6d42468bae3376376c02b, type: 3}
   blurAmount: 0.9
-  targetMaterial: {fileID: 2100000, guid: ca8ed97b23b68f54b9083304ffa84213, type: 2}
 --- !u!1001 &333349387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784526956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.17, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1680678829}
