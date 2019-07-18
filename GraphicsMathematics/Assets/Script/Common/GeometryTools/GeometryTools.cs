@@ -81,7 +81,7 @@ public static class GeometryTools
         //P-P0与n垂直，有(P-P0)· n = 0 ，射线代入得到
         //(L0+Ld-P0)· n = 0得到
         //Ld· n = （P0-L0）· n=>d = (P0-L0)· n/L· n
-        //d > 0相交 d <=0不相交
+        //d >= 0相交 d <0不相交
         float d = Vector3.Dot(planePoint - rayPoint, planeNormal) / Vector3.Dot(rayDirection, planeNormal);
         if (d > 0)
             return SpaceRelationShip.Intersect;
