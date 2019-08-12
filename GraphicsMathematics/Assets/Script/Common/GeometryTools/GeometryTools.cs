@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpaceRelationShip
+public enum SpaceRelationship
 {
     Invalid = -1,
     Intersect = 0,//相交
@@ -22,7 +22,7 @@ public static class GeometryTools
     /// <param name="lineDirection">直线的方向</param>
     /// <param name="linePoint">已知直线上一点</param>
     /// <returns></returns>
-    public static SpaceRelationShip LineIntersectWithPlanePoint(Vector3 planeNormal, Vector3 planePoint, Vector3 lineDirection, Vector3 linePoint)
+    public static SpaceRelationship LineIntersectWithPlanePoint(Vector3 planeNormal, Vector3 planePoint, Vector3 lineDirection, Vector3 linePoint)
     {
         //平面方程Ax+By+Zc+D = 0，法向量n = (A,B,C)，P0(x0,y0,z0)为平面上一点
         //直线方程P = L0 + Ld，L0为直线上一点，L为直线的方向
@@ -33,14 +33,14 @@ public static class GeometryTools
         //代入直线方程得到交点
         if (Mathf.Abs(Vector3.Dot(lineDirection, planeNormal)) > 0)//相交
         {
-            return SpaceRelationShip.Intersect;
+            return SpaceRelationship.Intersect;
         }
         else if (Mathf.Abs(Vector3.Dot(linePoint - planePoint, planeNormal)) > 0)//在平面内
         {
-            return SpaceRelationShip.Inner;
+            return SpaceRelationship.Inner;
         }
         else
-            return SpaceRelationShip.Parallel;
+            return SpaceRelationship.Parallel;
     }
 
     /// <summary>
@@ -73,7 +73,7 @@ public static class GeometryTools
     /// <param name="rayDirection">射线的方向</param>
     /// <param name="rayPoint">射线起点</param>
     /// <returns></returns>
-    public static SpaceRelationShip RayIntersectWithPlanePoint(Vector3 planeNormal, Vector3 planePoint, Vector3 rayDirection, Vector3 rayPoint)
+    public static SpaceRelationship RayIntersectWithPlanePoint(Vector3 planeNormal, Vector3 planePoint, Vector3 rayDirection, Vector3 rayPoint)
     {
         //平面方程Ax+By+Zc+D = 0，法向量n = (A,B,C)，P0(x0,y0,z0)为平面上一点
         //直线方程P = L0 + Ld，L0为射线起点，L为射线的方向
@@ -84,9 +84,9 @@ public static class GeometryTools
         //d > 0相交 d <=0不相交
         float d = Vector3.Dot(planePoint - rayPoint, planeNormal) / Vector3.Dot(rayDirection, planeNormal);
         if (d > 0)
-            return SpaceRelationShip.Intersect;
+            return SpaceRelationship.Intersect;
         else 
-            return SpaceRelationShip.NonIntersect;
+            return SpaceRelationship.NonIntersect;
     }
 
 }
