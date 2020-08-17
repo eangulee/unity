@@ -62,6 +62,7 @@ public class LongClickButton : Button
         base.OnPointerDown(eventData);
         if (m_firstTime.Equals(default(DateTime)))
             m_firstTime = DateTime.Now;
+        //Debug.Log("OnPointerDown");
     }
 
     public override void OnPointerUp(PointerEventData eventData)
